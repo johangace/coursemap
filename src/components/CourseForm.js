@@ -21,12 +21,16 @@ function CourseForm(props) {
             onChange={props.onChange}
             className="form-control"
             value={props.course.authorId || ""}
+            error={props.errors.title}
           >
             <option value="" />
             <option value="1">Cory House</option>
             <option value="2">Scott Allen</option>
           </select>
         </div>
+        {props.errors.authorid && (
+          <div className="alert alert-danger "> {props.errors.authorId} </div>
+        )}
       </div>
 
       <TextInput
@@ -35,6 +39,7 @@ function CourseForm(props) {
         name="category"
         onChange={props.onChange}
         value={props.course.category}
+        error={props.errors.title}
       />
 
       <input type="submit" value="Save" className="btn btn-primary" />
